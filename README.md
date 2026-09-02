@@ -64,7 +64,7 @@ This project is an independent end-to-end tourism data analytics system designed
 
 ## Dataset Source
 
-- **Dataset URL:** [https://www.kaggle.com/datasets/tourism-india-attractions](https://www.kaggle.com/datasets/tourism-india-attractions)
+- **Dataset URL:** [https://www.kaggle.com/datasets/prabhatpatel123/famous-indian-tourist-place-with-image-link](https://www.kaggle.com/datasets/prabhatpatel123/famous-indian-tourist-place-with-image-link)
 
 > The source data is processed through Python and the final analytical dataset is stored and managed in Microsoft SQL Server. The final submission does not use CSV as the database/storage layer.
 
