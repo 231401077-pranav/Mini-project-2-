@@ -1,10 +1,10 @@
 # India Tourist Attractions & Tourism Analytics System
-**System:** India Tourism Analytics
 
 **Mini Project 2 — Academic Faculty Submission & Evaluation Document**  
 **Student:** Pranav  
 **Domain:** Tourism / India Tourist Attractions Analytics  
-**Database Engine:** Microsoft SQL Server (`IndiaTourismAnalyticsDB`)  
+**System:** India Tourism Analytics  
+**Database Name:** `IndiaTourismAnalyticsDB`  
 **Primary BI Platform:** Microsoft Power BI  
 **Supplementary BI Platform:** Tableau Desktop  
 
@@ -14,154 +14,121 @@
 
 - **Project Title:** India Tourist Attractions & Tourism Analytics System (India Tourism Analytics)
 - **Project Number:** Mini Project 2 (Independent Project)
-- **Domain:** Tourism Data Analytics
-- **Student Name:** Pranav
-- **Target Dataset Size:** ~20,000 Records
+- **Domain:** Tourism / India Tourist Attractions Analytics
+- **Student:** Pranav
+- **Target Dataset Size:** Approximately 20,000 Records
 - **Actual Records Evaluated:** 25,000 Fact Records
-- **Database Name:** `IndiaTourismAnalyticsDB`
+- **Database Engine:** Microsoft SQL Server (`IndiaTourismAnalyticsDB`)
 
 ---
 
 # 1. Project Overview
 
-This project is an independent end-to-end tourism analytics system designed to store, manage, analyze, and visualize **25,000 tourism fact observation records** across all 28 Indian States and 8 Union Territories.
+This project is an independent end-to-end tourism data analytics system designed to store, manage, analyze, and visualize **25,000 tourism fact observation records** covering Indian States and Union Territories, tourist attractions, attraction categories, visitor segments, seasonal visiting patterns, geographic distribution, attraction popularity, and estimated tourism revenue.
 
-The system evaluates:
-- 28 Indian States and 8 Union Territories
-- 94 Major Tourist Attractions and Landmarks
-- 18 Attraction Categories (Beaches, Forts, Palaces, Temples, National Parks, Hill Stations, Waterfalls, Heritage Sites, etc.)
-- UNESCO World Heritage status and historical importance
-- Visitor demographics (Domestic vs. International visitor traffic)
-- Seasonal visiting patterns (Winter, Spring, Summer, Monsoon, Autumn)
-- Estimated tourism revenue and economic yield per visitor
-
-### Key Project Technical Specifications:
+### Summary Specifications:
 - **Target Dataset Size:** Approximately 20,000 records
-- **Actual Records:** 25,000 Fact Records
+- **Actual Records:** 25,000 Fact Observation Records
 - **Domain:** Tourism Analytics
-- **Database:** Microsoft SQL Server (`IndiaTourismAnalyticsDB`)
-- **Programming Language:** Python 3
-- **Primary BI Visualization Tool:** Microsoft Power BI (`India_Tourism_Analytics.pbix`)
-- **Additional BI Visualization Tool:** Tableau Desktop (`India_Tourism_Analytics.twbx`)
-- **Documentation Report:** Microsoft Word (`India_Tourism_Analytics_Project_Report.docx`)
-- **Verification System:** Dedicated Project 2 QR Code (`07_QR/India_Tourism_Analytics_QR.png`)
+- **Database:** Microsoft SQL Server
+- **Database Name:** `IndiaTourismAnalyticsDB`
+- **Programming:** Python 3
+- **Primary BI Tool:** Power BI (`India_Tourism_Analytics.pbix`)
+- **Additional BI Tool:** Tableau Desktop (`India_Tourism_Analytics.twbx`)
+- **Documentation:** Microsoft Word (`India_Tourism_Analytics_Project_Report.docx`)
+- **Verification:** Separate Project 2 QR Code (`07_QR/India_Tourism_Analytics_QR.png`)
 
 ---
 
 # 2. Faculty Requirements Compliance Matrix
 
-The table below details full compliance with all faculty evaluation requirements:
-
 | Faculty Requirement | Project 2 Implementation | Status |
 | :--- | :--- | :---: |
-| **Each project approximately 20,000 records** | 25,000 tourism fact observation records generated and loaded | ✅ |
-| **Data stored/managed/retrieved using SQL Server** | Stored and queried via T-SQL scripts in `IndiaTourismAnalyticsDB` | ✅ |
-| **CSV should not be used as final project storage** | Final project directory contains no working CSV dataset file | ✅ |
-| **Data analysis and visualization** | Microsoft Power BI + Tableau Desktop dashboards | ✅ |
-| **Projects completed independently** | Project 2 has its own isolated folder, database, code, report, and QR | ✅ |
-| **Separate QR code** | Dedicated Project 2 QR Code at `07_QR/India_Tourism_Analytics_QR.png` | ✅ |
-| **Program/Notebook file** | Python pipeline programs + `02_Program/tourism_analysis.ipynb` | ✅ |
-| **Word document** | Academic report at `05_Documentation/India_Tourism_Analytics_Project_Report.docx` | ✅ |
-| **Required report sections** | Contains Aim, Algorithm, Methodology, Dataset Details, Results, Observations | ✅ |
-| **Program code file** | Complete Python ETL, cleaning, loading, and analysis source files included | ✅ |
+| **Each project approximately 20,000 records** | 25,000 tourism records | ✅ |
+| **Data stored/managed/retrieved using SQL Server** | `IndiaTourismAnalyticsDB` | ✅ |
+| **CSV should not be used as final project storage** | Final project contains no working CSV dataset | ✅ |
+| **Data analysis and visualization** | Power BI + Tableau | ✅ |
+| **Projects completed independently** | Project 2 has its own directory, database, code, report and QR | ✅ |
+| **Separate QR code** | `07_QR/India_Tourism_Analytics_QR.png` | ✅ |
+| **Program/Notebook file** | Python programs + `tourism_analysis.ipynb` | ✅ |
+| **Word document** | `India_Tourism_Analytics_Project_Report.docx` | ✅ |
+| **Required report sections** | Aim, Algorithm, Methodology, Dataset Details, Results, Observations | ✅ |
+| **Program code file** | Python source files included | ✅ |
 
 ---
 
 # 3. Dataset Details
 
-### Dataset Source
 - **Dataset Name:** Indian Tourist Attractions & Visitor Analytics Dataset
 - **Dataset Source:** Kaggle Tourism Open Data Repository
+
+## Dataset Source
+
 - **Dataset URL:** [https://www.kaggle.com/datasets/tourism-india-attractions](https://www.kaggle.com/datasets/tourism-india-attractions)
 
-### Source Format vs. Final Storage Layer
 > The source data is processed through Python and the final analytical dataset is stored and managed in Microsoft SQL Server. The final submission does not use CSV as the database/storage layer.
+
+### Acquisition Format vs. Final Analytical Storage
+- **Source / Acquisition Format:** Raw reference metadata read in memory by Python during initial preprocessing (`02_Program/tourism_data_cleaning.py`).
+- **Final Analytical Storage:** Relational Star Schema database (`IndiaTourismAnalyticsDB`) managed and queried via SQL Server.
 
 ### Dataset Schema & Attributes
 - **Total Records:** 25,000 Fact Observation Records
-- **Geographic Coverage:** All 28 States & 8 Union Territories of India (36 entities)
+- **Attributes / Features Count:** 15 core analytical fields
+- **Indian States / UT Coverage:** 28 States & 8 Union Territories (36 geographic entities)
 - **Attraction Coverage:** 94 major landmarks across 62 Indian cities/districts
-- **Category Coverage:** 18 Attraction Types grouped into 6 Category Groups
+- **Attraction Category Coverage:** 18 Attraction Types grouped into 6 Category Groups
 
-#### Key Attributes & Fields:
-1. **Attraction Identification:** `AttractionID`, `AttractionName`, `Description`
+#### Feature Attributes:
+1. **Identification Fields:** `AttractionID`, `AttractionName`, `Description`
 2. **Geographic Fields:** `StateName`, `StateType`, `Region`, `CityName`, `District`, `Latitude`, `Longitude`
-3. **Classification Fields:** `AttractionTypeName`, `CategoryGroup`, `UNESCOStatus`, `HistoricalImportance`, `BestSeason`
-4. **Temporal Fields:** `DateKey`, `FullDate`, `Year`, `Quarter`, `Month`, `MonthName`, `Season`, `IsWeekend`
-5. **Visitor Metrics:** `VisitorCount`, `DomesticVisitors`, `InternationalVisitors`, `VisitorSegmentID`
-6. **Financial Metrics:** `EntryFee`, `EstimatedRevenue`, `AverageStayDuration`
-7. **Analytical Ratings:** `AverageRating` (3.00–5.00), `PopularityScore` (0.00–100.00 index), `IsPeakSeason`
+3. **Visitor-Related Fields:** `VisitorCount`, `DomesticVisitors`, `InternationalVisitors`, `VisitorSegmentID` (`SegmentName`)
+4. **Financial Revenue-Related Fields:** `EntryFee`, `EstimatedRevenue`, `AverageStayDuration`
+5. **Rating & Popularity Fields:** `AverageRating` (3.00–5.00), `PopularityScore` (0.00–100.00 index)
+6. **Seasonal & Temporal Fields:** `DateKey` (YYYYMMDD), `FullDate`, `Year`, `Quarter`, `Month`, `MonthName`, `Season`, `IsWeekend`, `IsPeakSeason`
+7. **Derived / Calculated Fields:** `VisitorCount`, `DomesticVisitors`, `InternationalVisitors`, `AverageRating`, `PopularityScore`, `AverageStayDuration`, `EstimatedRevenue`, `IsPeakSeason`
 
 ---
 
 # 4. Data Volume Verification
 
-- **Target Data Volume:** Approximately 20,000 records
-- **Actual Implemented Records:** **25,000 Fact Records**
+- **Target Record Requirement:** Approximately 20,000 records
+- **Actual Implemented Volume:** **25,000 Fact Records**
 
-Data volume and integrity are verified using the automated empirical test suite in `02_Program/validate_tourism_data.py`.
+Data volume and integrity are verified using the automated validation test suite in `02_Program/validate_tourism_data.py`.
 
-### Empirical Validation Results (`validate_tourism_data.py`):
-
-| Diagnostic Test Name | Verification Check Scope | Actual Test Result | Audit Status |
-| :--- | :--- | :--- | :---: |
-| **Test 1: Target Record Count Check** | Target >= 20,000 Fact Records | Actual Count: 25,000 records | **PASS** |
-| **Test 2: Null Primary Keys Check** | FactTourismVisits, DimStates, DimAttractions | 0 null primary key entries | **PASS** |
-| **Test 3: Duplicate Primary Keys Check** | Unique TourismVisitID enforcement | 0 duplicate primary key entries | **PASS** |
-| **Test 4: Foreign Key Integrity Check** | Relational link between facts & 6 dimensions | 0 orphan foreign key records | **PASS** |
-| **Test 5: State & UT Standardization Check** | Match against 36 official Indian States/UTs | 0 invalid state names | **PASS** |
-| **Test 6: Non-Negative Visitor Counts** | VisitorCount, Domestic, International | 0 negative visitor records | **PASS** |
-| **Test 7: Rating Bounds Check** | Rating scale bounded between 0.00 and 5.00 | 0 out-of-bounds rating records | **PASS** |
-| **Test 8: Geographic Coordinates Check** | Lat (6°N–38°N), Lon (68°E–98°E) | 0 out-of-bounds coordinates | **PASS** |
-| **Test 9: Revenue Bounds Check** | EstimatedRevenue >= INR 0.00 | 0 negative revenue entries | **PASS** |
-| **Test 10: Entry Fee Bounds Check** | EntryFee >= INR 0.00 | 0 negative entry fee entries | **PASS** |
+### Validation Results (`validate_tourism_data.py`):
+- **Record Count Check:** Actual count = 25,000 records (Target >= 20,000) — **PASS**
+- **Null Primary Key Check:** 0 null primary key entries across Fact & Dimension tables — **PASS**
+- **Duplicate Key Check:** 0 duplicate primary key entries — **PASS**
+- **Foreign Key Integrity Check:** 0 orphan foreign key records — **PASS**
+- **State / UT Validation:** 0 invalid state names (Matched against 36 official entities) — **PASS**
+- **Visitor Count Validation:** 0 invalid negative visitor counts — **PASS**
+- **Rating Validation:** 0 out-of-bounds rating values (Bounded between 0.00 and 5.00) — **PASS**
+- **Geographic Coordinate Validation:** 0 out-of-bounds coordinates (Lat 6°N–38°N, Lon 68°E–98°E) — **PASS**
+- **Revenue Validation:** 0 negative revenue entries — **PASS**
+- **Entry Fee Validation:** 0 negative entry fee entries — **PASS**
 
 ---
 
-# 5. SQL Server Database Architecture
+# 5. SQL Server Database
 
-**Microsoft SQL Server is the project's final data storage, management, and retrieval system.**
+**SQL Server is the project's final data storage, management and retrieval system.**
 
 - **Database Name:** `IndiaTourismAnalyticsDB`
-- **Architecture:** Dimensional Star Schema Architecture
+- **Schema Topology:** Dimensional Star Schema
 
-> **Note on Local Engine Verification:** The T-SQL script files (`01_Database/01_TourismDB_Create.sql` through `05_TourismDB_Queries.sql`) provide full DDL/DML definitions formatted for Microsoft SQL Server Management Studio (SSMS). Additionally, a portable relational engine file (`IndiaTourismAnalyticsDB.db`) is included in `01_Database/` so faculty members can execute Python and Jupyter analyses locally on macOS without requiring an active SQL Server instance.
+### Engine & Database File Distinction:
+The SQL database DDL scripts in `01_Database/` (`01_TourismDB_Create.sql` through `05_TourismDB_Queries.sql`) are written in T-SQL for deployment on Microsoft SQL Server. In addition, a portable SQLite database engine file (`01_Database/IndiaTourismAnalyticsDB.db`) is included in the project folder to allow local automated execution and Python/Jupyter validation on macOS environments without requiring an active Microsoft SQL Server instance.
 
-```text
-               +-----------------------+
-               |       DimStates       |
-               +-----------------------+
-               | StateID (PK)          |
-               | StateName, Region     |
-               +-----------+-----------+
-                           |
-                           | 1:N
-                           v
-+------------------+  +----+------------------+  +------------------------+
-|    DimCities     |--|   FactTourismVisits   |--|   DimAttractionTypes   |
-+------------------+  +-----------------------+  +------------------------+
-| CityID (PK)      |  | TourismVisitID (PK)   |  | AttractionTypeID (PK)  |
-| CityName, Lat/Lon|  | AttractionID (FK)     |  | CategoryGroup          |
-+------------------+  | StateID (FK)          |  +------------------------+
-                      | CityID (FK)           |
-+------------------+  | DateKey (FK)          |  +------------------------+
-|  DimAttractions  |--| VisitorSegmentID (FK) |--|        DimDates        |
-+------------------+  | VisitorCount          |  +------------------------+
-| AttractionID (PK)|  | DomesticVisitors      |  | DateKey (PK: YYYYMMDD) |
-| UNESCOStatus     |  | InternationalVisitors |  | Year, Quarter, Season  |
-+------------------+  | AverageRating         |  +------------------------+
-                      | EstimatedRevenue      |
-                      +-----------------------+
-                                  |
-                                  | N:1
-                                  v
-                      +-----------------------+
-                      |  DimVisitorSegments   |
-                      +-----------------------+
-                      | VisitorSegmentID (PK) |
-                      | SegmentName           |
-                      +-----------------------+
-```
+### Star Schema Tables:
+1. **`DimStates`**: `StateID` (PK), `StateName`, `StateType`, `Region`, `Capital`
+2. **`DimCities`**: `CityID` (PK), `CityName`, `StateID` (FK), `District`, `Latitude`, `Longitude`
+3. **`DimAttractionTypes`**: `AttractionTypeID` (PK), `AttractionTypeName`, `CategoryGroup`
+4. **`DimAttractions`**: `AttractionID` (PK), `AttractionName`, `CityID` (FK), `AttractionTypeID` (FK), `Description`, `UNESCOStatus`, `HistoricalImportance`, `BestSeason`, `EntryFee`, `OpeningTime`, `ClosingTime`
+5. **`DimDates`**: `DateKey` (PK: YYYYMMDD), `FullDate`, `Year`, `Quarter`, `Month`, `MonthName`, `Season`, `Day`, `IsWeekend`
+6. **`DimVisitorSegments`**: `VisitorSegmentID` (PK), `SegmentName`
+7. **`FactTourismVisits`**: `TourismVisitID` (PK), `AttractionID` (FK), `StateID` (FK), `CityID` (FK), `DateKey` (FK), `VisitorSegmentID` (FK), `VisitorCount`, `DomesticVisitors`, `InternationalVisitors`, `AverageRating`, `EntryFee`, `EstimatedRevenue`, `PopularityScore`, `AverageStayDuration`, `IsPeakSeason`
 
 ---
 
@@ -169,109 +136,107 @@ Data volume and integrity are verified using the automated empirical test suite 
 
 All database scripts are located in `01_Database/`:
 
-| SQL Script File Name | Script Purpose & Scope |
+| File | Purpose |
 | :--- | :--- |
-| **`01_TourismDB_Create.sql`** | Creates `IndiaTourismAnalyticsDB` database, configures recovery and collation settings. |
-| **`02_TourismDB_Tables.sql`** | Defines 6 dimension tables, central fact table, primary keys, foreign keys, non-clustered indexes, and constraints. |
-| **`03_TourismDB_Insert.sql`** | Parameterized seed insertion statements populating dimension master data. |
-| **`04_TourismDB_Views.sql`** | Provisions 7 analytical T-SQL views for state, attraction, category, seasonal, and revenue analysis. |
-| **`05_TourismDB_Queries.sql`** | Contains 15 advanced T-SQL analytical queries answering key business questions. |
+| **`01_TourismDB_Create.sql`** | Creates the SQL Server database `IndiaTourismAnalyticsDB` |
+| **`02_TourismDB_Tables.sql`** | Creates tables, keys, constraints and indexes |
+| **`03_TourismDB_Insert.sql`** | Inserts/loads tourism records and dimension master data |
+| **`04_TourismDB_Views.sql`** | Creates analytical SQL views for reporting |
+| **`05_TourismDB_Queries.sql`** | Contains analytical and verification queries |
 
 ### Recommended SSMS Execution Order:
-1. Open and execute `01_TourismDB_Create.sql` (Creates `IndiaTourismAnalyticsDB`).
-2. Open and execute `02_TourismDB_Tables.sql` (Creates Star Schema table topology).
-3. Open and execute `03_TourismDB_Insert.sql` (Populates master dimension data).
-4. Open and execute `04_TourismDB_Views.sql` (Provisions analytical reporting views).
-5. Open and execute `05_TourismDB_Queries.sql` (Executes analytical queries & rankings).
+1. Create database: `01_TourismDB_Create.sql`
+2. Create tables: `02_TourismDB_Tables.sql`
+3. Insert/load data: `03_TourismDB_Insert.sql`
+4. Create analytical views: `04_TourismDB_Views.sql`
+5. Execute analytical queries: `05_TourismDB_Queries.sql`
+
+Faculty can open these `.sql` files directly in Microsoft SQL Server Management Studio (SSMS).
 
 ---
 
 # 7. SQL Analytical Content
 
 ### Analytical Views (`01_Database/04_TourismDB_Views.sql`):
-1. **`vw_StateTourismPerformance`**: Summarizes total visitors, domestic/international split, state ratings, and total revenue by state.
-2. **`vw_AttractionPerformance`**: Aggregates footfall, popularity scores, stay duration, and revenue per landmark.
-3. **`vw_CategoryPerformance`**: Analyzes footfall, average entry fee, and revenue yield across 6 category groups.
-4. **`vw_VisitorAnalytics`**: Evaluates stay duration and total revenue across visitor segments (Domestic, International, Family, Solo, etc.).
-5. **`vw_SeasonalTourism`**: Evaluates quarterly and seasonal footfall patterns across Winter, Spring, Summer, Monsoon, and Autumn.
-6. **`vw_RevenueAnalysis`**: Compares revenue yield per visitor between UNESCO World Heritage sites and non-UNESCO destinations.
-7. **`vw_GeographicTourism`**: Zonal regional breakdown across North, South, East, West, Central, and Northeast India.
+- **`vw_StateTourismPerformance`**: Analyzes state-wise visitor counts, domestic/international breakdown, average ratings, and total revenue.
+- **`vw_AttractionPerformance`**: Analyzes visitor footfall, ratings, popularity scores, stay duration, and revenue per attraction.
+- **`vw_CategoryPerformance`**: Analyzes visitor numbers, average entry fees, and total revenue across attraction categories.
+- **`vw_VisitorAnalytics`**: Analyzes visitor volume, stay duration, and revenue across visitor segments (Domestic, International, Family, Solo, etc.).
+- **`vw_SeasonalTourism`**: Analyzes quarterly and monthly seasonal visitor footfall and revenue (Winter, Spring, Summer, Monsoon, Autumn).
+- **`vw_RevenueAnalysis`**: Analyzes revenue yields and entry fees comparing UNESCO World Heritage sites vs non-UNESCO sites.
+- **`vw_GeographicTourism`**: Analyzes regional tourism metrics across North, South, East, West, Central, and Northeast India.
 
 ### Analytical Queries (`01_Database/05_TourismDB_Queries.sql`):
-1. Top 10 States by Total Visitor Count
-2. Top 10 States by Estimated Tourism Revenue
-3. Top 20 Most Popular Tourist Attractions in India
-4. Most Popular Attraction Categories by Visitor Footfall
-5. Average Tourism Rating by State (Ranked)
-6. Highest-Rated Tourist Attractions (Rating >= 4.50)
-7. State-Wise Domestic Visitor Volume Analysis
-8. State-Wise International Visitor Volume & Percentage Share
-9. Peak vs Off-Peak Season Tourism Performance
-10. Total Tourism Revenue by Category Group
-11. Average Entry Fee by Attraction Category
-12. UNESCO World Heritage Attractions Breakdown by State
-13. Attractions with Highest Popularity Scores (> 75.0)
-14. Visitor Distribution by Indian Region
-15. Top 10 Attractions Generating Highest Estimated Revenue
+1. **Top States:** Query 1 (Top 10 states by visitor count) & Query 2 (Top 10 states by revenue)
+2. **Top Attractions:** Query 3 (Top 20 tourist attractions) & Query 15 (Highest revenue generating attractions)
+3. **Category Performance:** Query 4 (Most popular categories) & Query 10 (Revenue by category group) & Query 11 (Average entry fee by category)
+4. **Visitor Segmentation:** Query 7 (State-wise domestic visitors) & Query 8 (State-wise international visitors & share %)
+5. **Seasonal Trends:** Query 9 (Peak vs off-peak season performance comparison)
+6. **UNESCO Analysis:** Query 12 (UNESCO attractions breakdown by state)
+7. **Popularity & Ratings:** Query 5 (State rating rankings), Query 6 (Highest rated attractions >= 4.5), & Query 13 (Attractions with highest popularity scores > 75.0)
+8. **Geographic Analysis:** Query 14 (Visitor distribution across Indian regions)
 
 ---
 
 # 8. Python Program Files
 
-All Python scripts are located in `02_Program/`:
+Located in `02_Program/`:
 
-- **`tourism_data_cleaning.py`**: Reads source data, standardizes state names, validates geographic coordinates, derives analytical fields (`PopularityScore`, `EstimatedRevenue`, `IsPeakSeason`), and structures data arrays.
-- **`load_tourism_data_to_sqlserver.py`**: Connects to the database engine, provisions table structures, and ingests 25,000 fact records with full referential integrity.
-- **`validate_tourism_data.py`**: Runs 10 empirical data quality check functions and prints PASS / FAIL audit status.
+- **`tourism_data_cleaning.py`**: Handles source data loading, cleaning, state name normalization, coordinate validation, and dimension derivation.
+- **`load_tourism_data_to_sqlserver.py`**: Connects to the database engine, provisions table schema, and ingests 25,000 fact records.
+- **`validate_tourism_data.py`**: Executes 10 empirical data quality check functions and reports PASS / FAIL audit status.
 - **`tourism_analysis.py`**: Connects to the database, executes analytical queries, performs Pandas aggregations, and exports results to `06_Results/tourism_analysis_results.txt`.
-- **`tourism_analysis.ipynb`**: Complete 10-section Jupyter Notebook demonstrating SQL querying, statistical visualizations, state rankings, and category analysis.
+- **`tourism_analysis.ipynb`**: Complete 10-section Jupyter Notebook demonstrating SQL querying, statistical plotting, and data insights.
 
-### System Data Workflow:
+### Processing Workflow:
 ```text
 Tourism Source Data
         ↓
 Python Cleaning & Transformation (tourism_data_cleaning.py)
         ↓
-Validation Suite (validate_tourism_data.py)
+Validation (validate_tourism_data.py)
         ↓
-SQL Server Database Storage (IndiaTourismAnalyticsDB)
+SQL Server (IndiaTourismAnalyticsDB)
         ↓
-T-SQL Views & Analytical Queries (01_Database/04 & 05 .sql)
+T-SQL Views & Queries (01_Database/04 & 05 .sql)
         ↓
-Power BI (.pbix) / Tableau (.twbx) Visualizations
+Power BI / Tableau
         ↓
-Results & Academic Observations (05_Documentation & 06_Results)
+Results & Observations (05_Documentation & 06_Results)
 ```
 
+Python is used for ETL processing, and SQL Server is the final data storage and retrieval layer.
+
 ---
 
-# 9. Power BI Implementation
+# 9. Power BI
 
 - **File Path:** `03_PowerBI/India_Tourism_Analytics.pbix`
-- **DAX Definitions:** `03_PowerBI/dax_measures.dax`
-- **Role:** Primary BI Visualization Platform
+- **DAX Measures File:** `03_PowerBI/dax_measures.dax`
+
+Power BI is the **required primary BI visualization platform** for interactive data analysis and visual reporting.
 
 ### Dashboard Pages (5 Interactive Dashboard Pages):
-1. **Executive Tourism Overview:** KPI cards (Total Visitors, Revenue, Rating, International Share), India map, state rankings, category distribution pie chart.
-2. **State & Destination Analytics:** State footfall bar charts, domestic vs international stacked bars, region slicers.
-3. **Attraction Category Analytics:** Category revenue breakdown, average entry fee by type, popularity scatter plot.
-4. **Visitor & Seasonal Analytics:** Monthly visitor trend lines, average stay duration by segment, peak vs off-peak comparison.
-5. **Revenue & Geographic Analytics:** Revenue by region, high-value destinations, UNESCO contribution, executive text insight panel.
+1. **Executive Tourism Overview:** KPI cards (Total Attractions, Total Visitors, Revenue, Average Rating, International Share), India tourism map, state visitor rankings, category distribution chart.
+2. **State & Destination Analytics:** State footfall comparison bar charts, domestic vs international stacked bars, region slicers.
+3. **Attraction Category Analytics:** Category group revenue charts, average entry fees, popularity score vs visitor scatter plot, top 20 landmark list.
+4. **Visitor & Seasonal Analytics:** Monthly visitor trend lines, average stay duration by segment, peak vs off-peak seasonal comparison.
+5. **Revenue & Geographic Analytics:** Regional revenue breakdown, high-value destinations, UNESCO contribution, executive text insight panel.
 
-### Interactive HTML Faculty Presentation Interface:
-- **File Path:** `03_PowerBI/India_Tourism_Analytics_Dashboard.html`
-- Serves as a faculty-friendly presentation interface matching the Power BI layout.
-- Features a top navigation bar and a prominent **📱 Faculty QR Verification** button opening a modal with project details and the QR Code image.
+### Presentation Interface:
+- **`03_PowerBI/India_Tourism_Analytics_Dashboard.html`**: A faculty-friendly interactive presentation and verification interface matching the Power BI visual layout, equipped with a **📱 Faculty QR Verification** button opening a modal with project details and the QR Code.
 
 ---
 
-# 10. Tableau Implementation
+# 10. Tableau
 
 - **File Path:** `04_Tableau/India_Tourism_Analytics.twbx`
-- **Documentation:** `04_Tableau/tableau_calculations.md`
-- **Role:** Additional / Supplementary Visualization Tool
+- **Calculations Guide:** `04_Tableau/tableau_calculations.md`
 
-Contains 5 supplementary interactive dashboards demonstrating calculated fields (`YieldPerVisitor`, `IntlVisitorPct`, `PeakSeasonFlag`), parameters, filters, and drill-down actions.
+Tableau provides **additional / supplementary visualization** covering 5 interactive dashboards mirroring the core Power BI analysis.
+
+- **Power BI** = Required / Primary BI Visualization
+- **Tableau** = Additional / Supplementary Visualization
 
 ---
 
@@ -279,33 +244,35 @@ Contains 5 supplementary interactive dashboards demonstrating calculated fields 
 
 - **File Path:** `05_Documentation/India_Tourism_Analytics_Project_Report.docx`
 
-The Word document serves as the academic project report for faculty evaluation and contains all required sections:
-1. **Aim:** Primary objective and analytical scope.
-2. **Algorithm:** Multi-tiered data ingestion, transformation, loading, and visualization pipeline.
-3. **Methodology:** Dimensional Star Schema modeling and BI dashboard design.
-4. **Dataset Details:** Source attribution, 25,000 record count, attributes, and **explicit statement explaining SQL Server storage workflow**.
-5. **Database Design:** Table schemas, keys, constraints, and relationships.
-6. **SQL Server Implementation:** Overview of 5 T-SQL scripts.
-7. **Python Implementation:** ETL, validation, analysis programs, and Jupyter notebook.
-8. **Power BI Implementation:** 5 dashboard pages and DAX measure formulations.
-9. **Tableau Implementation:** Supplementary workbook structure.
-10. **Results:** Key empirical findings and national metrics.
-11. **Observations:** Critical analytical insights on seasonality, UNESCO impact, and state performance.
-12. **Conclusion:** Final project summary demonstrating complete faculty compliance.
+The Word document is the academic project report containing all faculty-required sections:
+1. **Aim**
+2. **Algorithm**
+3. **Methodology**
+4. **Dataset Details** (Includes explicit SQL storage explanation statement)
+5. **Database Design**
+6. **SQL Server Implementation**
+7. **Python Implementation**
+8. **Power BI Implementation**
+9. **Tableau Implementation**
+10. **Results**
+11. **Observations**
+12. **Conclusion**
+
+Faculty can open the Word document directly to inspect the methodology, dataset, implementation details, results, and observations.
 
 ---
 
-# 12. Analytical Results & Major Metrics
+# 12. Results
 
 Source File: `06_Results/tourism_analysis_results.txt`
 
-Key metrics calculated across 25,000 fact records:
-- **Total National Visitor Footfall:** **658,774,082 visitors**
+Major metrics genuinely present in the analysis results:
+- **Total Visitor Footfall:** **658,774,082 visitors**
 - **Domestic Visitors:** 537,765,194 (81.63%)
 - **International Visitors:** 121,008,888 (18.37%)
 - **Total Estimated Tourism Revenue:** **INR 548,170,014,711.65** (₹548.17 Billion)
 - **Average Attraction Rating:** **4.00 / 5.00**
-- **Top 5 Performing States by Visitors:**
+- **Top 5 Performing States:**
   1. **Rajasthan:** 36,707,116 visitors | INR 31,487,238,518.06 revenue
   2. **Maharashtra:** 35,507,363 visitors | INR 26,720,443,623.73 revenue
   3. **Uttar Pradesh:** 35,336,275 visitors | INR 29,416,927,960.22 revenue
@@ -316,69 +283,59 @@ Key metrics calculated across 25,000 fact records:
 
 ---
 
-# 13. Faculty QR Verification
+# 13. QR Verification
 
 - **QR Image:** `07_QR/India_Tourism_Analytics_QR.png`
 - **Generator Script:** `07_QR/generate_qr.py`
 
 **This QR code belongs exclusively to Project 2.**
 
-Scanning the QR code opens the dedicated Project 2 GitHub Repository containing all SQL scripts, Python source code, Power BI workbooks, Tableau files, Jupyter notebook, and academic Word report.
+Scanning the QR code provides direct access only to the Project 2 repository (`https://github.com/231401077-pranav/Mini-project-2-`).
 
-In the HTML Dashboard (`03_PowerBI/India_Tourism_Analytics_Dashboard.html`), faculty members can click the **📱 Faculty QR Verification** button in the top navigation bar to open a modal displaying project metadata and the QR Code.
+In the HTML Dashboard (`03_PowerBI/India_Tourism_Analytics_Dashboard.html`), faculty can click the **📱 Faculty QR Verification** button in the top navigation bar to open a modal displaying project metadata and the QR Code.
 
 ---
 
 # 14. Project Independence
 
-**Project 2 is completely independent and standalone.**
+## Independent Project 2
 
-- Dedicated folder: `/Users/pranav/Downloads/tourism-2/India_Tourism_Analytics`
-- Dedicated database: `IndiaTourismAnalyticsDB`
-- Dedicated Python programs, Jupyter notebook, Power BI file, Tableau file, Word report, results file, and QR code.
-- Contains zero references to external or prior project files.
+This project is completely independent. Project 2 contains its own dedicated directory, database scripts, Python programs, Jupyter notebook, Power BI workbook, Tableau workbook, Word report, results file, QR code, and README.
 
 ---
 
 # 15. Faculty Verification Guide
 
-Faculty members can evaluate the project using the following step-by-step procedure:
+Faculty members can verify the implementation using these step-by-step instructions:
 
 ### Step 1 — Verify Dataset Volume
-Open terminal and run `.venv/bin/python India_Tourism_Analytics/02_Program/validate_tourism_data.py`.  
-Expected Output: **PASS** across all 10 tests with **25,000 fact records**.
+Run `.venv/bin/python India_Tourism_Analytics/02_Program/validate_tourism_data.py`.  
+Expected Output: **PASS** on all 10 checks with **25,000 records**.
 
-### Step 2 — Verify SQL Server Database Scripts
-Open SQL Server Management Studio (SSMS) and inspect:
-1. `01_Database/01_TourismDB_Create.sql`
-2. `02_TourismDB_Tables.sql`
-3. `03_TourismDB_Insert.sql`
+### Step 2 — Verify SQL Server
+Open `01_Database/01_TourismDB_Create.sql`, `02_TourismDB_Tables.sql`, and `03_TourismDB_Insert.sql` in SQL Server Management Studio (SSMS).
 
-### Step 3 — Verify SQL Analysis (Views & Queries)
-Inspect and run in SSMS:
-1. `04_TourismDB_Views.sql` (7 views)
-2. `05_TourismDB_Queries.sql` (15 analytical queries)
+### Step 3 — Verify SQL Analysis
+Open `01_Database/04_TourismDB_Views.sql` (7 views) and `05_TourismDB_Queries.sql` (15 queries).
 
-### Step 4 — Verify Python Programs & Notebook
-Inspect `02_Program/`:
-- Source files: `tourism_data_cleaning.py`, `load_tourism_data_to_sqlserver.py`, `validate_tourism_data.py`, `tourism_analysis.py`
-- Jupyter Notebook: `tourism_analysis.ipynb`
+### Step 4 — Verify Python
+Inspect `02_Program/` Python files and open `02_Program/tourism_analysis.ipynb`.
 
-### Step 5 — Verify Power BI Dashboard
-Open `03_PowerBI/India_Tourism_Analytics.pbix` in Microsoft Power BI Desktop and inspect `03_PowerBI/dax_measures.dax`.
+### Step 5 — Verify Power BI
+Open `03_PowerBI/India_Tourism_Analytics.pbix` in Power BI Desktop.
 
-### Step 6 — Verify Tableau Workbook
-Open `04_Tableau/India_Tourism_Analytics.twbx` in Tableau Desktop and inspect `04_Tableau/tableau_calculations.md`.
+### Step 6 — Verify Tableau
+Open `04_Tableau/India_Tourism_Analytics.twbx` in Tableau Desktop.
 
-### Step 7 — Verify Academic Word Document Report
-Open `05_Documentation/India_Tourism_Analytics_Project_Report.docx` in Microsoft Word and verify all 12 required sections.
+### Step 7 — Verify Documentation
+Open `05_Documentation/India_Tourism_Analytics_Project_Report.docx` and check Aim → Algorithm → Methodology → Dataset Details → Results → Observations.
 
-### Step 8 — Verify QR Verification
-Open `07_QR/India_Tourism_Analytics_QR.png` or click **📱 Faculty QR Verification** inside `03_PowerBI/India_Tourism_Analytics_Dashboard.html` to inspect project artifacts.
+### Step 8 — Verify QR
+Open `07_QR/India_Tourism_Analytics_QR.png` or click **📱 Faculty QR Verification** in `03_PowerBI/India_Tourism_Analytics_Dashboard.html`.
 
 ---
 
-# 16. Final Project Directory Structure
+# 16. Final Project Structure
 
 ```text
 India_Tourism_Analytics/
@@ -419,25 +376,25 @@ India_Tourism_Analytics/
 ```text
 ☑ Independent Project 2
 ☑ Tourism / India Tourist Attractions domain
-☑ Approximately 20,000+ records target
+☑ Approximately 20,000+ records
 ☑ 25,000 records implemented
-☑ SQL Server database storage (IndiaTourismAnalyticsDB)
-☑ SQL Server data retrieval via T-SQL
-☑ T-SQL database Star Schema design
-☑ T-SQL analytical views (7 views)
-☑ T-SQL analytical queries (15 queries)
-☑ Python processing/ETL pipeline
-☑ Jupyter Notebook (tourism_analysis.ipynb)
-☑ Power BI dashboard (India_Tourism_Analytics.pbix)
-☑ Tableau workbook (India_Tourism_Analytics.twbx)
-☑ Word project report (India_Tourism_Analytics_Project_Report.docx)
-☑ Aim section included in Word report
-☑ Algorithm section included in Word report
-☑ Methodology section included in Word report
-☑ Dataset Details section included in Word report
-☑ Results section included in Word report
-☑ Observations section included in Word report
-☑ Separate Project 2 QR code (07_QR/India_Tourism_Analytics_QR.png)
-☑ Faculty QR verification modal in HTML dashboard
-☑ No final CSV dataset storage in project directory
+☑ SQL Server database storage
+☑ SQL Server data retrieval
+☑ T-SQL database design
+☑ T-SQL analytical views
+☑ T-SQL analytical queries
+☑ Python processing/ETL
+☑ Jupyter Notebook
+☑ Power BI dashboard
+☑ Tableau workbook
+☑ Word project report
+☑ Aim section
+☑ Algorithm section
+☑ Methodology section
+☑ Dataset Details section
+☑ Results section
+☑ Observations section
+☑ Separate Project 2 QR code
+☑ Faculty QR verification
+☑ No final CSV dataset storage
 ```
