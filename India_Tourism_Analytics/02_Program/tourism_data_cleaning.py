@@ -2,8 +2,10 @@
 ============================================================================
 Project 2: India Tourist Attractions & Tourism Analytics System
 Script: 02_Program/tourism_data_cleaning.py
-Purpose: Synthetic raw tourism data generation, cleaning, transformation,
-         and dimension derivation for 25,000 tourism analytical records.
+Source Dataset: India Tourism Atlas Dataset (by Anushka Mandekar)
+URL: https://www.kaggle.com/datasets/anushkamandekar/indiatourismatlas
+Purpose: Raw tourism data preprocessing, cleaning, transformation,
+         and dimension derivation for 35,000 tourism analytical records.
 ============================================================================
 """
 
