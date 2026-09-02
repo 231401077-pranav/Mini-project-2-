@@ -59,12 +59,12 @@ This project is an independent end-to-end tourism data analytics system designed
 
 # 3. Dataset Details
 
-- **Dataset Name:** Famous Indian Tourist Places Dataset
+- **Dataset Name:** India Tourism Atlas Dataset (by Anushka Mandekar)
 - **Dataset Source:** Kaggle Tourism Open Data Repository
 
 ## Dataset Source
 
-- **Dataset URL:** [https://www.kaggle.com/datasets/prabhatpatel123/famous-indian-tourist-place-with-image-link](https://www.kaggle.com/datasets/prabhatpatel123/famous-indian-tourist-place-with-image-link)
+- **Dataset URL:** [https://www.kaggle.com/datasets/anushkamandekar/indiatourismatlas](https://www.kaggle.com/datasets/anushkamandekar/indiatourismatlas)
 
 > The source data is processed through Python and the final analytical dataset is stored and managed in Microsoft SQL Server. The final submission does not use CSV as the database/storage layer.
 
