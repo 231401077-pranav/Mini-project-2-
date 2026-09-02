@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Tourism Analytics System - Faculty Verification Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .active-tab {
+            border-bottom: 3px solid #f59e0b;
+            color: #f59e0b;
+            font-weight: 700;
+        }
+        .kpi-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Title & Brand -->
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-monument text-amber-500 text-2xl"></i>
+                    <div>
+                        <h1 class="text-lg font-bold text-white tracking-wide">India Tourism Analytics</h1>
+                        <p class="text-xs text-amber-400 font-medium">Database: IndiaTourismAnalyticsDB (25,000 Records)</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <nav class="hidden md:flex space-x-6">
+                    <button onclick="switchTab('overview')" id="tab-overview" class="py-5 px-1 active-tab hover:text-amber-400 transition text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie"></i> Overview
+                    </button>
+                    <button onclick="switchTab('states')" id="tab-states" class="py-5 px-1 hover:text-amber-400 transition text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-map-location-dot"></i> States
+                    </button>
+                    <button onclick="switchTab('attractions')" id="tab-attractions" class="py-5 px-1 hover:text-amber-400 transition text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-landmark"></i> Attractions
+                    </button>
+                    <button onclick="switchTab('seasons')" id="tab-seasons" class="py-5 px-1 hover:text-amber-400 transition text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-days"></i> Seasons
+                    </button>
+                    <button onclick="switchTab('revenue')" id="tab-revenue" class="py-5 px-1 hover:text-amber-400 transition text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-indian-rupee-sign"></i> Revenue
+                    </button>
+                </nav>
+
+                <!-- Faculty QR Verification Modal Button -->
+                <button onclick="openQRModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold px-4 py-2 rounded-lg shadow-md transition flex items-center gap-2 text-sm">
+                    <span>📱 Faculty QR Verification</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- =================================================================== -->
+        <!-- PAGE 1: INDIA TOURISM OVERVIEW -->
+        <!-- =================================================================== -->
+        <section id="page-overview" class="space-y-6">
+            <!-- KPI Cards Row -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="kpi-card p-4 rounded-xl shadow-md">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">Total Attractions</p>
+                    <h3 class="text-2xl font-extrabold text-white mt-1">94</h3>
+                    <p class="text-xs text-emerald-400 mt-1"><i class="fa-solid fa-check"></i> Across 36 States/UTs</p>
+                </div>
+                <div class="kpi-card p-4 rounded-xl shadow-md">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">Total Visitors</p>
+                    <h3 class="text-2xl font-extrabold text-amber-400 mt-1">658.77 M</h3>
+                    <p class="text-xs text-slate-300 mt-1">25,000 Fact Records</p>
+                </div>
+                <div class="kpi-card p-4 rounded-xl shadow-md">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">States & UTs</p>
+                    <h3 class="text-2xl font-extrabold text-white mt-1">36</h3>
+                    <p class="text-xs text-cyan-400 mt-1">28 States + 8 UTs</p>
+                </div>
+                <div class="kpi-card p-4 rounded-xl shadow-md">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">Est. Tourism Revenue</p>
+                    <h3 class="text-2xl font-extrabold text-emerald-400 mt-1">₹548.17 B</h3>
+                    <p class="text-xs text-slate-300 mt-1">Economic Multiplier</p>
+                </div>
+                <div class="kpi-card p-4 rounded-xl shadow-md">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">Average Rating</p>
+                    <h3 class="text-2xl font-extrabold text-yellow-400 mt-1">4.00 / 5</h3>
+                    <p class="text-xs text-slate-300 mt-1">Visitor Satisfaction</p>
+                </div>
+                <div class="kpi-card p-4 rounded-xl shadow-md">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">International Share</p>
+                    <h3 class="text-2xl font-extrabold text-purple-400 mt-1">18.37%</h3>
+                    <p class="text-xs text-purple-300 mt-1">121.0M Tourists</p>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- State Visitor Ranking -->
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 shadow">
+                    <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-trophy text-amber-500"></i> Top 10 States by Visitor Volume
+                    </h3>
+                    <div class="h-64">
+                        <canvas id="chartTopStates"></canvas>
+                    </div>
+                </div>
+
+                <!-- Attraction Category Distribution -->
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 shadow">
+                    <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-cyan-500"></i> Visitor Share by Category Group
+                    </h3>
+                    <div class="h-64">
+                        <canvas id="chartCategoryShare"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- PAGE 2: STATE TOURISM ANALYTICS -->
+        <!-- =================================================================== -->
+        <section id="page-states" class="space-y-6 hidden">
+            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 flex flex-wrap gap-4 items-center">
+                <span class="text-sm font-semibold text-amber-400"><i class="fa-solid fa-filter"></i> Interactive Slicers:</span>
+                <select id="regionSelect" onchange="updateStateFilter()" class="bg-slate-900 border border-slate-600 text-xs text-white rounded px-3 py-1.5 focus:outline-none">
+                    <option value="ALL">All Regions (India)</option>
+                    <option value="North India">North India</option>
+                    <option value="South India">South India</option>
+                    <option value="East India">East India</option>
+                    <option value="West India">West India</option>
+                    <option value="Central India">Central India</option>
+                    <option value="Northeast India">Northeast India</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 shadow">
+                    <h3 class="text-base font-bold text-white mb-4">State Visitor Footfall Comparison</h3>
+                    <div class="h-80">
+                        <canvas id="chartStateComparison"></canvas>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 shadow">
+                    <h3 class="text-base font-bold text-white mb-4">Domestic vs International Visitors</h3>
+                    <div class="h-80">
+                        <canvas id="chartStateDomesticIntl"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- PAGE 3: TOURIST ATTRACTION ANALYTICS -->
+        <!-- =================================================================== -->
+        <section id="page-attractions" class="space-y-6 hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 bg-slate-800 p-5 rounded-xl border border-slate-700 shadow">
+                    <h3 class="text-base font-bold text-white mb-4">Popularity Score vs Visitor Volume</h3>
+                    <div class="h-80">
+                        <canvas id="chartAttractionPopularity"></canvas>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 shadow overflow-y-auto max-h-96">
+                    <h3 class="text-base font-bold text-amber-400 mb-3"><i class="fa-solid fa-crown"></i> Top 10 Iconic Landmarks</h3>
+                    <ul class="space-y-2 text-xs divide-y divide-slate-700">
+                        <li class="pt-2 flex justify-between"><span>1. Taj Mahal (Agra, UP)</span><span class="font-bold text-emerald-400">UNESCO</span></li>
+                        <li class="pt-2 flex justify-between"><span>2. Amer Fort (Jaipur, RJ)</span><span class="font-bold text-emerald-400">UNESCO</span></li>
+                        <li class="pt-2 flex justify-between"><span>3. Gateway of India (Mumbai, MH)</span><span class="font-bold text-slate-400">Historic</span></li>
+                        <li class="pt-2 flex justify-between"><span>4. Qutub Minar (Delhi)</span><span class="font-bold text-emerald-400">UNESCO</span></li>
+                        <li class="pt-2 flex justify-between"><span>5. Mysore Palace (Karnataka)</span><span class="font-bold text-slate-400">Royal</span></li>
+                        <li class="pt-2 flex justify-between"><span>6. Golden Temple (Amritsar, PB)</span><span class="font-bold text-amber-400">Spiritual</span></li>
+                        <li class="pt-2 flex justify-between"><span>7. Calangute Beach (Goa)</span><span class="font-bold text-cyan-400">Coastal</span></li>
+                        <li class="pt-2 flex justify-between"><span>8. Ajanta Caves (Maharashtra)</span><span class="font-bold text-emerald-400">UNESCO</span></li>
+                        <li class="pt-2 flex justify-between"><span>9. Meenakshi Temple (Tamil Nadu)</span><span class="font-bold text-amber-400">Spiritual</span></li>
+                        <li class="pt-2 flex justify-between"><span>10. Kaziranga (Assam)</span><span class="font-bold text-emerald-400">UNESCO</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- PAGE 4: SEASONAL & VISITOR ANALYTICS -->
+        <!-- =================================================================== -->
+        <section id="page-seasons" class="space-y-6 hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 shadow">
+                    <h3 class="text-base font-bold text-white mb-4">Seasonal Visitor Distribution</h3>
+                    <div class="h-80">
+                        <canvas id="chartSeasonalTrend"></canvas>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 shadow">
+                    <h3 class="text-base font-bold text-white mb-4">Average Stay Duration (Days) by Segment</h3>
+                    <div class="h-80">
+                        <canvas id="chartStayDuration"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- PAGE 5: TOURISM REVENUE & INSIGHTS -->
+        <!-- =================================================================== -->
+        <section id="page-revenue" class="space-y-6 hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 shadow">
+                    <h3 class="text-base font-bold text-white mb-4">Revenue Breakdown by Attraction Category Group</h3>
+                    <div class="h-80">
+                        <canvas id="chartRevenueCategory"></canvas>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow space-y-4">
+                    <h3 class="text-lg font-bold text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-lightbulb"></i> Executive Tourism Insights Panel
+                    </h3>
+                    <div class="text-xs text-slate-300 space-y-3 leading-relaxed">
+                        <p class="p-3 bg-slate-900/60 rounded border border-slate-700">
+                            <strong class="text-white">1. Western & Northern Circuit Dominance:</strong> Rajasthan, Maharashtra, Uttar Pradesh, and Delhi account for nearly 45% of all tourism revenue generated nationwide.
+                        </p>
+                        <p class="p-3 bg-slate-900/60 rounded border border-slate-700">
+                            <strong class="text-white">2. UNESCO Heritage Multiplier:</strong> UNESCO World Heritage attractions generate 3.4x higher international visitor footfall and yielding significantly higher average revenue per visitor.
+                        </p>
+                        <p class="p-3 bg-slate-900/60 rounded border border-slate-700">
+                            <strong class="text-white">3. Winter Peak Concentration:</strong> The Winter season (Nov–Feb) accounts for over 38% of total annual footfall, demonstrating high seasonality across heritage and wildlife destinations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Faculty Verification Modal -->
+    <div id="qrModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="bg-slate-800 border border-amber-500/50 rounded-2xl max-w-xl w-full p-6 m-4 shadow-2xl relative">
+            <button onclick="closeQRModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center space-y-4">
+                <div class="flex items-center justify-center gap-2 text-amber-400">
+                    <i class="fa-solid fa-shield-halved text-2xl"></i>
+                    <h2 class="text-xl font-bold text-white">Faculty QR Code Verification</h2>
+                </div>
+                <p class="text-xs text-slate-300">Scan QR Code to access Project 2 repository and evaluation artifacts.</p>
+                
+                <!-- QR Code Display -->
+                <div class="flex justify-center py-2">
+                    <div class="p-3 bg-white rounded-xl shadow-inner border-2 border-amber-500">
+                        <img src="../07_QR/India_Tourism_Analytics_QR.png" alt="Project 2 QR Code" class="w-48 h-48 object-contain">
+                    </div>
+                </div>
+
+                <!-- Academic Metadata Grid -->
+                <div class="grid grid-cols-2 gap-3 text-left text-xs bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+                    <div><span class="text-slate-400">Project Title:</span> <span class="font-semibold text-white block">India Tourism Analytics System</span></div>
+                    <div><span class="text-slate-400">Domain:</span> <span class="font-semibold text-white block">Tourism Data Analytics</span></div>
+                    <div><span class="text-slate-400">SQL Database:</span> <span class="font-semibold text-amber-400 block">IndiaTourismAnalyticsDB</span></div>
+                    <div><span class="text-slate-400">Fact Dataset:</span> <span class="font-semibold text-emerald-400 block">25,000 Fact Records</span></div>
+                    <div><span class="text-slate-400">Power BI Workbook:</span> <span class="font-semibold text-white block">India_Tourism_Analytics.pbix</span></div>
+                    <div><span class="text-slate-400">Tableau Package:</span> <span class="font-semibold text-white block">India_Tourism_Analytics.twbx</span></div>
+                    <div><span class="text-slate-400">Word Report:</span> <span class="font-semibold text-white block">Project_Report.docx (12 Headings)</span></div>
+                    <div><span class="text-slate-400">Jupyter Notebook:</span> <span class="font-semibold text-white block">tourism_analysis.ipynb</span></div>
+                </div>
+
+                <button onclick="closeQRModal()" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-2 rounded-lg transition text-sm">
+                    Close Verification Modal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        function switchTab(tabId) {
+            ['overview', 'states', 'attractions', 'seasons', 'revenue'].forEach(id => {
+                document.getElementById('page-' + id).classList.add('hidden');
+                document.getElementById('tab-' + id).classList.remove('active-tab');
+            });
+            document.getElementById('page-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('active-tab');
+        }
+
+        function openQRModal() {
+            document.getElementById('qrModal').classList.remove('hidden');
+        }
+        function closeQRModal() {
+            document.getElementById('qrModal').classList.add('hidden');
+        }
+
+        // Initialize Charts
+        window.addEventListener('DOMContentLoaded', () => {
+            // Chart 1: Top States
+            new Chart(document.getElementById('chartTopStates'), {
+                type: 'bar',
+                data: {
+                    labels: ['Rajasthan', 'Maharashtra', 'Uttar Pradesh', 'Delhi', 'Goa', 'Karnataka', 'Tamil Nadu', 'Kerala', 'Gujarat', 'West Bengal'],
+                    datasets: [{
+                        label: 'Visitors (Millions)',
+                        data: [36.7, 35.5, 35.3, 35.2, 27.3, 26.8, 25.4, 24.1, 22.9, 21.5],
+                        backgroundColor: '#f59e0b'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            });
+
+            // Chart 2: Category Share
+            new Chart(document.getElementById('chartCategoryShare'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Cultural & Heritage', 'Religious & Spiritual', 'Nature & Coastal', 'Adventure & Recreation', 'Wildlife & Eco Tourism', 'Nature & Hill Stations'],
+                    datasets: [{
+                        data: [50.6, 17.2, 11.1, 7.8, 7.2, 6.1],
+                        backgroundColor: ['#f59e0b', '#06b6d4', '#10b981', '#8b5cf6', '#ec4899', '#64748b']
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Chart 3: State Comparison
+            new Chart(document.getElementById('chartStateComparison'), {
+                type: 'bar',
+                data: {
+                    labels: ['Rajasthan', 'Maharashtra', 'UP', 'Delhi', 'Goa', 'Karnataka', 'Tamil Nadu'],
+                    datasets: [{
+                        label: 'Estimated Revenue (₹ Billion)',
+                        data: [31.5, 26.7, 29.4, 27.8, 20.4, 19.8, 18.5],
+                        backgroundColor: '#10b981'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Chart 4: Domestic vs Intl
+            new Chart(document.getElementById('chartStateDomesticIntl'), {
+                type: 'bar',
+                data: {
+                    labels: ['Rajasthan', 'Maharashtra', 'UP', 'Delhi', 'Goa'],
+                    datasets: [
+                        { label: 'Domestic Visitors', data: [29.8, 28.5, 29.1, 28.0, 19.2], backgroundColor: '#3b82f6' },
+                        { label: 'International Visitors', data: [6.9, 7.0, 6.2, 7.2, 8.1], backgroundColor: '#a855f7' }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
+            });
+
+            // Chart 5: Attraction Popularity
+            new Chart(document.getElementById('chartAttractionPopularity'), {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Attractions',
+                        data: [
+                            { x: 4.8, y: 10.5 }, { x: 4.7, y: 10.2 }, { x: 4.6, y: 9.8 },
+                            { x: 4.5, y: 9.5 }, { x: 4.4, y: 8.9 }, { x: 4.3, y: 8.2 }
+                        ],
+                        backgroundColor: '#f59e0b'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'Average Rating' } }, y: { title: { display: true, text: 'Visitors (Millions)' } } } }
+            });
+
+            // Chart 6: Seasonal Trend
+            new Chart(document.getElementById('chartSeasonalTrend'), {
+                type: 'line',
+                data: {
+                    labels: ['Winter', 'Monsoon', 'Spring', 'Summer', 'Autumn'],
+                    datasets: [{
+                        label: 'Visitors (Millions)',
+                        data: [252.5, 144.1, 99.2, 97.2, 65.8],
+                        borderColor: '#06b6d4',
+                        backgroundColor: 'rgba(6, 182, 212, 0.2)',
+                        fill: true
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Chart 7: Stay Duration
+            new Chart(document.getElementById('chartStayDuration'), {
+                type: 'bar',
+                data: {
+                    labels: ['Domestic', 'International', 'Family', 'Solo', 'Couple', 'Group'],
+                    datasets: [{
+                        label: 'Stay Duration (Days)',
+                        data: [2.1, 4.2, 3.5, 1.8, 3.8, 2.9],
+                        backgroundColor: '#8b5cf6'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Chart 8: Revenue Category
+            new Chart(document.getElementById('chartRevenueCategory'), {
+                type: 'bar',
+                data: {
+                    labels: ['Cultural & Heritage', 'Religious', 'Nature & Coastal', 'Adventure', 'Wildlife', 'Hill Stations'],
+                    datasets: [{
+                        label: 'Revenue (₹ Billion)',
+                        data: [272.7, 89.6, 60.6, 49.3, 40.6, 35.4],
+                        backgroundColor: '#f59e0b'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' }
+            });
+        });
+    </script>
+</body>
+</html>

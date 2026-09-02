@@ -1,0 +1,136 @@
+// ============================================================================
+// Project 2: India Tourist Attractions & Tourism Analytics System
+// File: 03_PowerBI/dax_measures.dax
+// Purpose: Complete DAX Measures for 5-Page Power BI Dashboard
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// 1. Core Key Performance Indicators (KPIs)
+// ----------------------------------------------------------------------------
+
+Total Visitors = 
+SUM(FactTourismVisits[VisitorCount])
+
+Total Attractions = 
+DISTINCTCOUNT(DimAttractions[AttractionID])
+
+Total States = 
+DISTINCTCOUNT(DimStates[StateID])
+
+Total Estimated Revenue = 
+SUM(FactTourismVisits[EstimatedRevenue])
+
+Average Rating = 
+AVERAGE(FactTourismVisits[AverageRating])
+
+Average Entry Fee = 
+AVERAGE(FactTourismVisits[EntryFee])
+
+Average Stay Duration = 
+AVERAGE(FactTourismVisits[AverageStayDuration])
+
+Average Popularity Score = 
+AVERAGE(FactTourismVisits[PopularityScore])
+
+// ----------------------------------------------------------------------------
+// 2. Demographic & Visitor Segmentation Measures
+// ----------------------------------------------------------------------------
+
+Domestic Visitors = 
+SUM(FactTourismVisits[DomesticVisitors])
+
+International Visitors = 
+SUM(FactTourismVisits[InternationalVisitors])
+
+Domestic Visitor Share % = 
+DIVIDE([Domestic Visitors], [Total Visitors], 0) * 100
+
+International Visitor Share % = 
+DIVIDE([International Visitors], [Total Visitors], 0) * 100
+
+// ----------------------------------------------------------------------------
+// 3. Revenue & Financial Analytics
+// ----------------------------------------------------------------------------
+
+Revenue per Visitor = 
+DIVIDE([Total Estimated Revenue], [Total Visitors], 0)
+
+Category Revenue Share % = 
+DIVIDE(
+    [Total Estimated Revenue],
+    CALCULATE([Total Estimated Revenue], ALL(DimAttractionTypes)),
+    0
+) * 100
+
+State Revenue Share % = 
+DIVIDE(
+    [Total Estimated Revenue],
+    CALCULATE([Total Estimated Revenue], ALL(DimStates)),
+    0
+) * 100
+
+UNESCO Revenue Contribution = 
+CALCULATE(
+    [Total Estimated Revenue],
+    DimAttractions[UNESCOStatus] = "UNESCO World Heritage"
+)
+
+// ----------------------------------------------------------------------------
+// 4. Seasonal & Peak Period Measures
+// ----------------------------------------------------------------------------
+
+Peak Season Visitors = 
+CALCULATE(
+    [Total Visitors],
+    FactTourismVisits[IsPeakSeason] = 1
+)
+
+Off Peak Season Visitors = 
+CALCULATE(
+    [Total Visitors],
+    FactTourismVisits[IsPeakSeason] = 0
+)
+
+Peak Season Traffic Share % = 
+DIVIDE([Peak Season Visitors], [Total Visitors], 0) * 100
+
+// ----------------------------------------------------------------------------
+// 5. Ranking & Growth Analytics
+// ----------------------------------------------------------------------------
+
+State Tourism Rank = 
+RANKX(
+    ALL(DimStates),
+    [Total Visitors],
+    ,
+    DESC,
+    Dense
+)
+
+Attraction Visitor Rank = 
+RANKX(
+    ALL(DimAttractions),
+    [Total Visitors],
+    ,
+    DESC,
+    Dense
+)
+
+Attraction Popularity Rank = 
+RANKX(
+    ALL(DimAttractions),
+    [Average Popularity Score],
+    ,
+    DESC,
+    Dense
+)
+
+Visitor YoY Growth % = 
+VAR CurrentPeriodVisitors = [Total Visitors]
+VAR PreviousYearVisitors = 
+    CALCULATE(
+        [Total Visitors],
+        SAMEPERIODLASTYEAR(DimDates[FullDate])
+    )
+RETURN
+    DIVIDE(CurrentPeriodVisitors - PreviousYearVisitors, PreviousYearVisitors, 0) * 100
