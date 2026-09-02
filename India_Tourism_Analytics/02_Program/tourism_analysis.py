@@ -123,7 +123,7 @@ def perform_tourism_analysis():
         "                             EXECUTIVE ANALYTICS SUMMARY                           ",
         "===================================================================================",
         f"Database Source: IndiaTourismAnalyticsDB (SQLite / SQL Server Relational Engine)",
-        f"Total Analytical Fact Records Evaluated: 25,000",
+        f"Total Analytical Fact Records Evaluated: 35,000",
         f"Scope: 28 States & 8 Union Territories across 18 Attraction Categories",
         "-----------------------------------------------------------------------------------",
         "",

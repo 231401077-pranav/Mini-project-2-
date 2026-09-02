@@ -239,7 +239,7 @@ def generate_and_clean_tourism_data():
     - df_segments (DimVisitorSegments)
     - df_facts (FactTourismVisits: exactly 25,000 records)
     """
-    print("Generating and cleaning Tourism dataset (~25,000 records)...")
+    print("Generating and cleaning Tourism dataset (~35,000 records)...")
 
     # 1. DimStates
     df_states = pd.DataFrame(STATES_DATA)
@@ -332,8 +332,8 @@ def generate_and_clean_tourism_data():
         {"VisitorSegmentID": i + 1, "SegmentName": s} for i, s in enumerate(segments)
     ])
 
-    # 7. FactTourismVisits (Generate EXACTLY 25,000 Records)
-    TARGET_RECORDS = 25000
+    # 7. FactTourismVisits (Generate EXACTLY 35,000 Records)
+    TARGET_RECORDS = 35000
     fact_rows = []
 
     print(f"Synthesizing {TARGET_RECORDS} analytical observation records...")

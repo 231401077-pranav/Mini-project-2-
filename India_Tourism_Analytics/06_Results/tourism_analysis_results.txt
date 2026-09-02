@@ -3,60 +3,60 @@
                              EXECUTIVE ANALYTICS SUMMARY                           
 ===================================================================================
 Database Source: IndiaTourismAnalyticsDB (SQLite / SQL Server Relational Engine)
-Total Analytical Fact Records Evaluated: 25,000
+Total Analytical Fact Records Evaluated: 35,000
 Scope: 28 States & 8 Union Territories across 18 Attraction Categories
 -----------------------------------------------------------------------------------
 
 1. KEY SYSTEM-WIDE METRICS
-   - Total Visitor Footfall   : 658,774,082 visitors
-   - Domestic Visitors        : 537,765,194 (81.63%)
-   - International Visitors   : 121,008,888 (18.37%)
-   - Total Tourism Revenue    : INR 548,170,014,711.65
+   - Total Visitor Footfall   : 923,090,802 visitors
+   - Domestic Visitors        : 753,311,712 (81.61%)
+   - International Visitors   : 169,779,090 (18.39%)
+   - Total Tourism Revenue    : INR 767,140,009,267.11
    - Average Attraction Rating: 4.0 / 5.00
 
 2. TOP 5 PERFORMING STATES BY VISITOR VOLUME
-   1. Rajasthan              | Region: West India      | Visitors: 36,707,116 | Revenue: INR 31,487,238,518.06
-   2. Maharashtra            | Region: West India      | Visitors: 35,507,363 | Revenue: INR 26,720,443,623.73
-   3. Uttar Pradesh          | Region: North India     | Visitors: 35,336,275 | Revenue: INR 29,416,927,960.22
-   4. Delhi                  | Region: North India     | Visitors: 35,196,992 | Revenue: INR 27,769,465,047.88
-   5. Goa                    | Region: West India      | Visitors: 27,269,751 | Revenue: INR 20,358,338,120.47
+   1. Rajasthan              | Region: West India      | Visitors: 51,506,609 | Revenue: INR 44,379,849,438.08
+   2. Maharashtra            | Region: West India      | Visitors: 49,948,830 | Revenue: INR 38,544,019,229.91
+   3. Uttar Pradesh          | Region: North India     | Visitors: 49,792,278 | Revenue: INR 41,469,566,348.01
+   4. Delhi                  | Region: North India     | Visitors: 49,607,647 | Revenue: INR 38,843,262,864.75
+   5. Goa                    | Region: West India      | Visitors: 38,100,618 | Revenue: INR 28,694,819,422.64
 
 3. TOP 5 TOURIST ATTRACTIONS BY POPULARITY AND VISITORS
-   1. Dadra and Nagar Haveli and Daman and Diu Monument Landmark 1 (Dadra and Nagar Haveli and Daman and Diu) | Visitors: 10,562,954 | Rating: 4.28 | Score: 58.25
-   2. Mizoram Wildlife Sanctuary Landmark 2 (Mizoram) | Visitors: 10,467,994 | Rating: 4.25 | Score: 57.7
-   3. Darjeeling Toy Railway         (West Bengal) | Visitors: 10,420,233 | Rating: 4.3 | Score: 57.92
-   4. Andhra Pradesh Heritage Site Landmark 2 (Andhra Pradesh) | Visitors: 10,201,837 | Rating: 4.31 | Score: 57.22
-   5. Khajuraho Group of Monuments   (Madhya Pradesh) | Visitors: 10,189,621 | Rating: 4.32 | Score: 57.39
+   1. Darjeeling Toy Railway         (West Bengal) | Visitors: 14,686,202 | Rating: 4.29 | Score: 58.0
+   2. Dadra and Nagar Haveli and Daman and Diu Monument Landmark 1 (Dadra and Nagar Haveli and Daman and Diu) | Visitors: 14,627,578 | Rating: 4.3 | Score: 58.06
+   3. Mizoram Wildlife Sanctuary Landmark 2 (Mizoram) | Visitors: 14,537,088 | Rating: 4.27 | Score: 57.5
+   4. Andhra Pradesh Heritage Site Landmark 2 (Andhra Pradesh) | Visitors: 14,408,420 | Rating: 4.32 | Score: 57.72
+   5. Hampi Monuments                (Karnataka) | Visitors: 14,374,529 | Rating: 4.33 | Score: 57.73
 
 4. TOURISM PERFORMANCE BY CATEGORY GROUP
-   - Cultural & Heritage       | Visitors: 333,272,597 | Revenue: INR 272,658,418,042.82 | Avg Fee: INR 68.41
-   - Religious & Spiritual     | Visitors: 113,170,520 | Revenue: INR 89,608,049,761.51 | Avg Fee: INR 50.37
-   - Nature & Coastal          | Visitors: 72,982,059 | Revenue: INR 60,600,693,062.64 | Avg Fee: INR 92.75
-   - Adventure & Recreation    | Visitors: 51,350,728 | Revenue: INR 49,274,373,791.60 | Avg Fee: INR 201.25
-   - Wildlife & Eco Tourism    | Visitors: 47,315,037 | Revenue: INR 40,641,218,860.92 | Avg Fee: INR 108.33
-   - Nature & Hill Stations    | Visitors: 40,683,141 | Revenue: INR 35,387,261,192.16 | Avg Fee: INR 120.84
+   - Cultural & Heritage       | Visitors: 467,741,071 | Revenue: INR 383,289,193,291.96 | Avg Fee: INR 68.42
+   - Religious & Spiritual     | Visitors: 158,634,381 | Revenue: INR 124,778,094,020.71 | Avg Fee: INR 50.35
+   - Nature & Coastal          | Visitors: 101,880,832 | Revenue: INR 84,209,689,768.96 | Avg Fee: INR 92.76
+   - Adventure & Recreation    | Visitors: 71,859,379 | Revenue: INR 68,902,796,244.52 | Avg Fee: INR 201.25
+   - Wildlife & Eco Tourism    | Visitors: 66,069,533 | Revenue: INR 56,447,355,508.28 | Avg Fee: INR 108.36
+   - Nature & Hill Stations    | Visitors: 56,905,606 | Revenue: INR 49,512,880,432.68 | Avg Fee: INR 120.91
 
 5. SEASONAL VISITOR DISTRIBUTION
-   - Season: Winter     | Visitors: 252,504,943 | Revenue: INR 210,160,117,589.98
-   - Season: Monsoon    | Visitors: 144,053,124 | Revenue: INR 119,372,017,410.08
-   - Season: Spring     | Visitors: 99,206,422 | Revenue: INR 84,036,942,000.75
-   - Season: Summer     | Visitors: 97,179,753 | Revenue: INR 80,663,328,502.41
-   - Season: Autumn     | Visitors: 65,829,840 | Revenue: INR 53,937,609,208.43
+   - Season: Winter     | Visitors: 354,000,449 | Revenue: INR 294,283,802,064.40
+   - Season: Monsoon    | Visitors: 202,133,559 | Revenue: INR 167,268,099,319.02
+   - Season: Spring     | Visitors: 138,425,540 | Revenue: INR 117,223,209,730.27
+   - Season: Summer     | Visitors: 136,558,365 | Revenue: INR 112,820,584,832.06
+   - Season: Autumn     | Visitors: 91,972,889 | Revenue: INR 75,544,313,321.36
 
 6. REGIONAL TOURISM CONCENTRATION
-   - Region: North India     | States: 9 | Visitors: 162,822,028 | Revenue: INR 138,618,883,463.13
-   - Region: West India      | States: 5 | Visitors: 132,510,872 | Revenue: INR 106,536,672,687.99
-   - Region: South India     | States: 8 | Visitors: 129,343,484 | Revenue: INR 107,393,643,572.26
-   - Region: Northeast India | States: 8 | Visitors: 122,560,272 | Revenue: INR 102,894,055,237.79
-   - Region: East India      | States: 4 | Visitors: 69,258,206 | Revenue: INR 58,820,375,654.96
-   - Region: Central India   | States: 2 | Visitors: 42,279,220 | Revenue: INR 33,906,384,095.52
+   - Region: North India     | States: 9 | Visitors: 228,508,101 | Revenue: INR 193,068,899,655.60
+   - Region: West India      | States: 5 | Visitors: 185,703,915 | Revenue: INR 150,210,099,003.47
+   - Region: South India     | States: 8 | Visitors: 181,719,612 | Revenue: INR 149,981,214,755.28
+   - Region: Northeast India | States: 8 | Visitors: 171,594,854 | Revenue: INR 144,176,273,914.89
+   - Region: East India      | States: 4 | Visitors: 96,824,730 | Revenue: INR 83,122,455,795.80
+   - Region: Central India   | States: 2 | Visitors: 58,739,590 | Revenue: INR 46,581,066,142.07
 
 ===================================================================================
                                 KEY ANALYTICAL INSIGHTS                            
 ===================================================================================
-1. Top State Destination: Rajasthan leads India with 36,707,116 visitors.
-2. Top Tourist Attraction: Dadra and Nagar Haveli and Daman and Diu Monument Landmark 1 registered the highest visitor footfall of 10,562,954.
+1. Top State Destination: Rajasthan leads India with 51,506,609 visitors.
+2. Top Tourist Attraction: Darjeeling Toy Railway registered the highest visitor footfall of 14,686,202.
 3. Dominant Attraction Category: 'Monument' generated the highest visitor interest.
 4. Peak Visiting Season: 'Winter' represents the highest seasonal traffic across the country.
-5. International Tourism Contribution: International tourists account for 18.37% of total visits, driving disproportionately high tourism revenue.
+5. International Tourism Contribution: International tourists account for 18.39% of total visits, driving disproportionately high tourism revenue.
 ===================================================================================

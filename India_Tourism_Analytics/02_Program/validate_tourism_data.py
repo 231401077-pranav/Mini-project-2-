@@ -46,8 +46,8 @@ def run_data_validation():
     # -------------------------------------------------------------------------
     cursor.execute("SELECT COUNT(*) FROM FactTourismVisits;")
     fact_count = cursor.fetchone()[0]
-    t1_status = "PASS" if fact_count >= 20000 else "FAIL"
-    test_results.append(("Test 1: Target Record Count Check (Target >= 20,000)", t1_status, f"Actual count: {fact_count:,} records"))
+    t1_status = "PASS" if fact_count >= 30000 else "FAIL"
+    test_results.append(("Test 1: Target Record Count Check (Target >= 30,000)", t1_status, f"Actual count: {fact_count:,} records"))
 
     # -------------------------------------------------------------------------
     # Test 2: Null Primary Keys Check

@@ -17,18 +17,18 @@
 - **Domain:** Tourism / India Tourist Attractions Analytics
 - **Student:** Pranav
 - **Target Dataset Size:** Approximately 20,000 Records
-- **Actual Records Evaluated:** 25,000 Fact Records
+- **Actual Records Evaluated:** 35,000 Fact Records
 - **Database Engine:** Microsoft SQL Server (`IndiaTourismAnalyticsDB`)
 
 ---
 
 # 1. Project Overview
 
-This project is an independent end-to-end tourism data analytics system designed to store, manage, analyze, and visualize **25,000 tourism fact observation records** covering Indian States and Union Territories, tourist attractions, attraction categories, visitor segments, seasonal visiting patterns, geographic distribution, attraction popularity, and estimated tourism revenue.
+This project is an independent end-to-end tourism data analytics system designed to store, manage, analyze, and visualize **35,000 tourism fact observation records** covering Indian States and Union Territories, tourist attractions, attraction categories, visitor segments, seasonal visiting patterns, geographic distribution, attraction popularity, and estimated tourism revenue.
 
 ### Summary Specifications:
 - **Target Dataset Size:** Approximately 20,000 records
-- **Actual Records:** 25,000 Fact Observation Records
+- **Actual Records:** 35,000 Fact Observation Records
 - **Domain:** Tourism Analytics
 - **Database:** Microsoft SQL Server
 - **Database Name:** `IndiaTourismAnalyticsDB`
@@ -44,7 +44,7 @@ This project is an independent end-to-end tourism data analytics system designed
 
 | Faculty Requirement | Project 2 Implementation | Status |
 | :--- | :--- | :---: |
-| **Each project approximately 20,000 records** | 25,000 tourism records | ✅ |
+| **Each project approximately 20,000 records** | 35,000 tourism records | ✅ |
 | **Data stored/managed/retrieved using SQL Server** | `IndiaTourismAnalyticsDB` | ✅ |
 | **CSV should not be used as final project storage** | Final project contains no working CSV dataset | ✅ |
 | **Data analysis and visualization** | Power BI + Tableau | ✅ |
@@ -73,7 +73,7 @@ This project is an independent end-to-end tourism data analytics system designed
 - **Final Analytical Storage:** Relational Star Schema database (`IndiaTourismAnalyticsDB`) managed and queried via SQL Server.
 
 ### Dataset Schema & Attributes
-- **Total Records:** 25,000 Fact Observation Records
+- **Total Records:** 35,000 Fact Observation Records
 - **Attributes / Features Count:** 15 core analytical fields
 - **Indian States / UT Coverage:** 28 States & 8 Union Territories (36 geographic entities)
 - **Attraction Coverage:** 94 major landmarks across 62 Indian cities/districts
@@ -93,12 +93,12 @@ This project is an independent end-to-end tourism data analytics system designed
 # 4. Data Volume Verification
 
 - **Target Record Requirement:** Approximately 20,000 records
-- **Actual Implemented Volume:** **25,000 Fact Records**
+- **Actual Implemented Volume:** **35,000 Fact Records**
 
 Data volume and integrity are verified using the automated validation test suite in `02_Program/validate_tourism_data.py`.
 
 ### Validation Results (`validate_tourism_data.py`):
-- **Record Count Check:** Actual count = 25,000 records (Target >= 20,000) — **PASS**
+- **Record Count Check:** Actual count = 35,000 records (Target >= 20,000) — **PASS**
 - **Null Primary Key Check:** 0 null primary key entries across Fact & Dimension tables — **PASS**
 - **Duplicate Key Check:** 0 duplicate primary key entries — **PASS**
 - **Foreign Key Integrity Check:** 0 orphan foreign key records — **PASS**
@@ -183,7 +183,7 @@ Faculty can open these `.sql` files directly in Microsoft SQL Server Management 
 Located in `02_Program/`:
 
 - **`tourism_data_cleaning.py`**: Handles source data loading, cleaning, state name normalization, coordinate validation, and dimension derivation.
-- **`load_tourism_data_to_sqlserver.py`**: Connects to the database engine, provisions table schema, and ingests 25,000 fact records.
+- **`load_tourism_data_to_sqlserver.py`**: Connects to the database engine, provisions table schema, and ingests 35,000 fact records.
 - **`validate_tourism_data.py`**: Executes 10 empirical data quality check functions and reports PASS / FAIL audit status.
 - **`tourism_analysis.py`**: Connects to the database, executes analytical queries, performs Pandas aggregations, and exports results to `06_Results/tourism_analysis_results.txt`.
 - **`tourism_analysis.ipynb`**: Complete 10-section Jupyter Notebook demonstrating SQL querying, statistical plotting, and data insights.
@@ -267,19 +267,19 @@ Faculty can open the Word document directly to inspect the methodology, dataset,
 Source File: `06_Results/tourism_analysis_results.txt`
 
 Major metrics genuinely present in the analysis results:
-- **Total Visitor Footfall:** **658,774,082 visitors**
-- **Domestic Visitors:** 537,765,194 (81.63%)
-- **International Visitors:** 121,008,888 (18.37%)
-- **Total Estimated Tourism Revenue:** **INR 548,170,014,711.65** (₹548.17 Billion)
+- **Total National Visitor Footfall:** **923,090,802 visitors**
+- **Domestic Visitors:** 753,311,712 (81.61%)
+- **International Visitors:** 169,779,090 (18.39%)
+- **Total Estimated Tourism Revenue:** **INR 767,140,009,267.11** (₹767.14 Billion)
 - **Average Attraction Rating:** **4.00 / 5.00**
-- **Top 5 Performing States:**
-  1. **Rajasthan:** 36,707,116 visitors | INR 31,487,238,518.06 revenue
-  2. **Maharashtra:** 35,507,363 visitors | INR 26,720,443,623.73 revenue
-  3. **Uttar Pradesh:** 35,336,275 visitors | INR 29,416,927,960.22 revenue
-  4. **Delhi:** 35,196,992 visitors | INR 27,769,465,047.88 revenue
-  5. **Goa:** 27,269,751 visitors | INR 20,358,338,120.47 revenue
-- **Top Category Group:** Cultural & Heritage (333,272,597 visitors | INR 272.65 Billion revenue)
-- **Peak Visiting Season:** Winter (252,504,943 visitors | INR 210.16 Billion revenue)
+- **Top 5 Performing States by Visitors:**
+  1. **Rajasthan:** 51,506,609 visitors | INR 44,379,849,438.08 revenue
+  2. **Maharashtra:** 49,948,830 visitors | INR 38,544,019,229.91 revenue
+  3. **Uttar Pradesh:** 49,792,278 visitors | INR 41,469,566,348.01 revenue
+  4. **Delhi:** 49,607,647 visitors | INR 38,843,262,864.75 revenue
+  5. **Goa:** 38,100,618 visitors | INR 28,694,819,422.64 revenue
+- **Top Category Group:** Cultural & Heritage (467,741,071 visitors | INR 383.28 Billion revenue)
+- **Peak Visiting Season:** Winter (354,000,449 visitors | INR 294.28 Billion revenue)
 
 ---
 

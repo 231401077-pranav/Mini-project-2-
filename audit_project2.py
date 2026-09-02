@@ -47,7 +47,7 @@ def run_compliance_audit():
 
     audit_checks.append(("2. Strict Isolation (No Project 1 / Hotel References)", "PASS" if not found_forbidden else "FAIL", "Zero legacy references detected"))
 
-    # 3. Fact Record Count >= 20,000
+    # 3. Fact Record Count >= 30,000
     fact_count = 0
     if DB_PATH.exists():
         conn = sqlite3.connect(DB_PATH)
@@ -56,8 +56,8 @@ def run_compliance_audit():
         fact_count = cursor.fetchone()[0]
         conn.close()
     
-    c3 = fact_count >= 20000
-    audit_checks.append(("3. Target Data Volume (20,000+ Fact Records)", "PASS" if c3 else "FAIL", f"Actual records: {fact_count:,}"))
+    c3 = fact_count >= 30000
+    audit_checks.append(("3. Target Data Volume (30,000+ Fact Records)", "PASS" if c3 else "FAIL", f"Actual records: {fact_count:,}"))
 
     # 4. SQL Server Scripts Existence
     sql_files = [
